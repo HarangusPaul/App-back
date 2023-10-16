@@ -11,5 +11,5 @@ import java.util.UUID;
 public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Id
-    public UUID id;
+    private UUID id;
 }
