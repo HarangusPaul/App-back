@@ -1,12 +1,10 @@
 package com.example.app.controller;
 
+import com.example.app.controller.request.UserRequest;
 import com.example.app.domain.User;
 import com.example.app.models.UserDTO;
 import com.example.app.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.QueryParam;
 import java.util.List;
@@ -21,8 +19,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public void add(@QueryParam(value = "name") String name) {
-        userService.add(name);
+    public void add(@RequestBody UserRequest userRequest) {
+        userService.add(userRequest);
     }
 
     @GetMapping(value = "/get")

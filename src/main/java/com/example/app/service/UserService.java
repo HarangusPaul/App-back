@@ -1,5 +1,6 @@
 package com.example.app.service;
 
+import com.example.app.controller.request.UserRequest;
 import com.example.app.domain.User;
 import com.example.app.models.UserDTO;
 import com.example.app.repository.UserRepository;
@@ -16,8 +17,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void add(String name) {
-        userRepository.save(new User(name, ""));
+    public void add(UserRequest userRequest) {
+        userRepository.save(new User(userRequest));
     }
 
     public List<UserDTO> get() {

@@ -1,5 +1,6 @@
 package com.example.app.domain;
 
+import com.example.app.controller.request.UserRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -18,4 +19,9 @@ public class User extends BaseEntity {
 //    @Column(columnDefinition = "txt")
     private String name;
     private String password;
+
+    public User(UserRequest userRequest) {
+        this.name = userRequest.getName();
+        this.password = userRequest.getPassword();
+    }
 }

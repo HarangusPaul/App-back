@@ -30,6 +30,8 @@ public class UrlFilterApp implements Filter {
                 "Logging Response :{}",
                 res.getContentType());
     }
+    private void verifyUrl(HttpServletResponse req){
 
+    }
     // other methods
 }
