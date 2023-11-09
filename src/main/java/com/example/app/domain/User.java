@@ -1,7 +1,6 @@
 package com.example.app.domain;
 
 import com.example.app.controller.request.UserRequest;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;

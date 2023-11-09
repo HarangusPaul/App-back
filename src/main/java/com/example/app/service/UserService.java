@@ -18,6 +18,8 @@ public class UserService {
     }
 
     public void add(UserRequest userRequest) {
+
+        User user = new User();
         userRepository.save(new User(userRequest));
     }
 
