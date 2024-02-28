@@ -28,7 +28,7 @@ public class AccountManageController {
         }
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public TokenDTO logIn(@RequestBody AccountCredentialsRequestValidation requestValidation) {
         return accountCredentialsService.logIn(requestValidation);
     }
