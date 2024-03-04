@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "account_credentials")
 @AllArgsConstructor
@@ -26,6 +28,10 @@ public class AccountCredentials extends BaseEntity{
     @Column
     private String password;
 
+
+    public UUID returnId(){
+        return this.id;
+    }
 
     public AccountCredentials(AccountCredentialsRequest request) {
         email = request.getEmail();
