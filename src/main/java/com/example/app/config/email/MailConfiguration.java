@@ -18,8 +18,8 @@ public class MailConfiguration {
 
 
         //todo:email auth
-        mailSender.setUsername("my@gmail.com");
-        mailSender.setPassword("mypassword");
+        mailSender.setUsername("mkielolol@gmail.com");
+        mailSender.setPassword("qrkf ivjp bvmd aame");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
