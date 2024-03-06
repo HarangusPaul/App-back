@@ -1,6 +1,7 @@
 package com.example.app.service;
 
 
+import com.example.app.config.exceptions.CustomException;
 import com.example.app.controller.request.AccountCredentialsRequest;
 import com.example.app.controller.request.AccountCredentialsRequestValidation;
 import com.example.app.domain.AccountCredentials;
@@ -19,8 +20,12 @@ public class AccountCredentialsService {
         this.tokenService = tokenService;
     }
 
-    public void create(AccountCredentialsRequest request) {
-        accountCredentialsRepository.save(new AccountCredentials(request));
+    public void create(AccountCredentialsRequest request) throws CustomException {
+        AccountCredentials value = new AccountCredentials(request);
+        if(accountCredentialsRepository.findByEmail(request.getEmail()) != null){
+            throw new CustomException("Already Existent Email!");
+        }
+        accountCredentialsRepository.save(value);
     }
 
     public TokenDTO logIn(AccountCredentialsRequestValidation requestValidation) {

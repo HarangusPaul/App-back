@@ -18,4 +18,7 @@ public class AccountCredentialsRequest {
 
     @NotNull
     private String password;
+
+    @NotNull
+    private String location;
 }

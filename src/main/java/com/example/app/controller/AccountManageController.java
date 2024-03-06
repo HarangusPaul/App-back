@@ -3,9 +3,10 @@ package com.example.app.controller;
 
 import com.example.app.controller.request.AccountCredentialsRequest;
 import com.example.app.controller.request.AccountCredentialsRequestValidation;
+import com.example.app.controller.request.AccountDetailsRequest;
 import com.example.app.models.TokenDTO;
 import com.example.app.service.AccountCredentialsService;
-import com.example.app.service.TokenService;
+import com.example.app.service.AccountDetailsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +15,22 @@ import org.springframework.web.bind.annotation.*;
 public class AccountManageController {
     private final AccountCredentialsService accountCredentialsService;
 
-    public AccountManageController(AccountCredentialsService accountCredentialsService) {
+    private final AccountDetailsService accountDetailsService;
+
+    public AccountManageController(AccountCredentialsService accountCredentialsService, AccountDetailsService accountDetailsService) {
         this.accountCredentialsService = accountCredentialsService;
+        this.accountDetailsService = accountDetailsService;
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> createAccount(@RequestBody AccountCredentialsRequest request) {
         try {
             accountCredentialsService.create(request);
-
+            accountDetailsService.create(new AccountDetailsRequest(request.getEmail(), request.getLocation()));
             return ResponseEntity.ok().build();
         } catch (Exception exception) {
-            return ResponseEntity.badRequest().body("Not valid account!");
+            exception.printStackTrace();
+            return ResponseEntity.badRequest().body(exception.getMessage());
         }
     }
 
