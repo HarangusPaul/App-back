@@ -75,7 +75,7 @@ public class SecurityFilterChainConfig {
 
 
         List<String> allowedOrigins = new ArrayList<String>();
-        allowedOrigins.add("*");
+        allowedOrigins.add("/**");
         List<String> allowedMethods = new ArrayList<String>();
         allowedMethods.add("*");
         List<String> allowedHeaders = new ArrayList<String>();
