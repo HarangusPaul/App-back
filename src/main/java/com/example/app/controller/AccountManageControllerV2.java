@@ -1,6 +1,7 @@
 package com.example.app.controller;
 
 
+
 import com.example.app.controller.request.AccountCredentialsRequest;
 import com.example.app.controller.request.AccountCredentialsRequestValidation;
 import com.example.app.controller.request.AccountDetailsRequest;
@@ -11,13 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/app/v1/accounts") ///every admin
-public class AccountManageController {
+@RequestMapping(value = "/app/v2/accounts") ///every day user
+public class AccountManageControllerV2 {
     private final AccountCredentialsService accountCredentialsService;
 
     private final AccountDetailsService accountDetailsService;
 
-    public AccountManageController(AccountCredentialsService accountCredentialsService, AccountDetailsService accountDetailsService) {
+    public AccountManageControllerV2(AccountCredentialsService accountCredentialsService, AccountDetailsService accountDetailsService) {
         this.accountCredentialsService = accountCredentialsService;
         this.accountDetailsService = accountDetailsService;
     }
