@@ -73,6 +73,9 @@ public class SecurityFilterChainConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
+
+        List<String> allowedOrigins = new ArrayList<String>();
+        allowedOrigins.add("*");
         List<String> allowedMethods = new ArrayList<String>();
         allowedMethods.add("*");
         List<String> allowedHeaders = new ArrayList<String>();
@@ -80,7 +83,7 @@ public class SecurityFilterChainConfig {
         List<String> exposedHeaders = new ArrayList<String>();
         exposedHeaders.add("*");
 
-        configuration.setAllowedOrigins(allowedMethods);
+        configuration.setAllowedOrigins(allowedOrigins);
         configuration.setAllowedMethods(allowedMethods);
         configuration.setAllowCredentials(false);
         configuration.setAllowedHeaders(allowedHeaders);
