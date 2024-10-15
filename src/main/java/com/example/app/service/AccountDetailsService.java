@@ -5,6 +5,8 @@ import com.example.app.repository.AccountDetailsRepository;
 import com.example.app.service.Email.EmailService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class AccountDetailsService {
     private final AccountDetailsRepository accountDetailsRepository;
@@ -18,7 +20,7 @@ public class AccountDetailsService {
 
     public void create(AccountDetailsRequest request) {
         emailService.sendSimpleMessage(request.getEmail(),"Email verification!","Please verify here:linku tau");
-        accountDetailsRepository.save(new AccountDetails(request.getEmail(),request.getLocationOfBrowser(),false));
+        accountDetailsRepository.save(new AccountDetails(request.getEmail(),request.getLocationOfBrowser(),false,new ArrayList<>()));
     }
 
     public void updateVerification(String email) {
