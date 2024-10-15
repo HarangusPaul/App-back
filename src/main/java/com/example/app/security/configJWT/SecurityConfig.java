@@ -9,7 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 @Configuration
 public class SecurityConfig {
 
@@ -19,7 +19,7 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter filter;
 
-    @Bean
+
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
